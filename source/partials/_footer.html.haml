@@ -29,14 +29,17 @@
 
             .column
                 .middle.aligned.content
-                    .header
-                        Built with
-                        = link_to 'Middleman', 'https://github.com/middleman/middleman'
+                    %p
+                        Made with
+                        = link_to 'Middleman', 'https://github.com/james-weaver'
                         &amp;
                         = link_to 'Semantic UI', 'http://www.semantic-ui.com'
-                        by
+                    %p
+                        Hosted on
+                        = link_to 'Netlify', 'https://www.netlify.com/'
+                    %p
+                        By
                         = link_to 'James Weaver', 'https://github.com/james-weaver'
-
 
 - if @video
     :javascript
