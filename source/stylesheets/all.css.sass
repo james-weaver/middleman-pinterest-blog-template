@@ -1,0 +1,47 @@
+@import semantic-ui/semantic-ui
+
+body
+    padding-top: 1em
+
+.main.container
+    margin-top: 2em
+    margin-bottom: 2em
+
+.ui.footer
+    padding-bottom: 2em
+
+.meta
+    margin-top: 0.5em
+    padding-bottom: 0.5em
+
+blockquote
+    border-left: 0.5em solid #efefef
+    padding-left: 0.5em
+    margin-left: 0em
+
+.ui.vertical.footer.segment
+    background-color: #efefef
+
+//  MASONRY
+//  https://github.com/Semantic-Org/Semantic-UI/issues/3353#issuecomment-206677270
+.masonry.grid
+    display: block
+
+
+@media only screen and (min-width: 768px)
+    .masonry.grid
+        -webkit-column-count: 2
+        -moz-column-count: 2
+        column-count: 2
+        -webkit-column-gap: 0
+        -moz-column-gap: 0
+        column-gap: 0
+
+    .ui.doubling.masonry.grid[class*="three column"] > .column
+        width: 100% !important
+
+@media only screen and (min-width: 992px)
+    .masonry.grid
+        -webkit-column-count: 3
+        -moz-column-count: 3
+        column-count: 3

@@ -1,0 +1,41 @@
+-#  Header
+= partial 'partials/header'
+
+-# Main content
+.ui.main.text.container{:role => "main"}
+    - author = find_author(current_page.data.author)
+
+    %h2.ui.header
+        = current_page.data.title
+
+    .content
+        .meta
+            %span.right.floated
+                %i.user.icon.small>
+                = author.name
+
+            %span.floated.right
+                %i.calendar.icon.small>
+                = Date.parse(current_page.data.date).strftime('%e %B %Y')
+
+    - if current_page.data.image
+        %img{:src => current_page.data.image, :class => "ui fluid image rounded"}
+
+    - elsif current_page.data.video
+        .ui.embed{'data-url' => current_page.data.video, 'data-placeholder' => current_page.data.videoplaceholder}
+
+    .ui.hidden.divider
+
+    = yield
+
+    %a{:name => "comments"}
+    %h3.ui.dividing.header Comments
+
+    -# Comments (replace with e.g. disqus)
+    = partial 'partials/comments'
+
+- if current_page.data.video
+    - @video = true
+
+-# Footer
+= partial 'partials/footer'

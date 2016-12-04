@@ -1,0 +1,9 @@
+# https://blog.pixelcab.in/2015/03/09/adding-authors-to-middleman/
+
+- Joe:
+  name: Joe Smith
+  photo: path_to_image
+
+- Jane:
+  name: Jane Smith
+  photo: path_to_image

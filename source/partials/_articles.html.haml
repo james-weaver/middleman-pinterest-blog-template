@@ -1,0 +1,39 @@
+.ui.three.column.doubling.stackable.masonry.grid
+    - articles.each_with_index do |article, i|
+        - author = find_author(article.data.author)
+        .column
+            .ui.fluid.card
+                %a{:href => article.url, :class => 'image'}
+                    - if article.data.image
+                        %img{:src => article.data.image}
+
+                    - elsif article.data.video
+                        - @video = true
+                        .ui.embed{'data-url' => article.data.video, 'data-placeholder' => article.data.videoplaceholder}
+                .content
+                    .header
+                        = link_to article.title, article.url
+                    .meta
+                        %span.left.floated
+                            - if author
+                                %i.user.icon.small
+                                = author.name
+                        %span.right.floated
+                            = article.date.strftime('%e %B %Y')
+                            %i.calendar.outline.icon.small
+                    .ui.hidden.divider
+                    .description #{article.summary}
+
+                .content.extra
+                    - if article.tags
+                        %span.right.floated
+                            - article.tags.each do |tag|
+                                - if tag != article.tags.last
+                                    #{link_to tag, tag_path(tag)}&#44;
+                                - else
+                                    = link_to tag, tag_path(tag)
+                            %i.tag.icon.small
+
+                    %span.left.floated
+                        %i.comment.outline.icon>
+                        = link_to "4", article.url+"#comments"

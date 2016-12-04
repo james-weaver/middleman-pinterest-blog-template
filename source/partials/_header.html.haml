@@ -1,0 +1,28 @@
+!!!
+%html
+    %head
+        %meta{:charset => "utf-8"}/
+        %meta{:content => "IE=edge;chrome=1", "http-equiv" => "X-UA-Compatible"}/
+        %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+        %meta{:content => "Your description goes here", :name => "Description"}/
+        %meta{:content => "Your, Keywords, Go, Here", :name => "Keywords"}/
+        %meta{:content => "Your Website Title", :property => "og:title"}/
+        %meta{:content => "website", :property => "og:type"}/
+        %meta{:content => "https://yoururl.com/", :property => "og:url"}/
+        %meta{:content => "https://yoururl.com/images/fbshare@2x.png", :property => "og:image"}/
+
+        %title
+            Middleman Pinterest Blog Layout#{'- ' + current_article.title unless current_article.nil?}
+
+        = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+        = javascript_include_tag 'vendor/jquery.min.js', 'vendor/semantic-ui.js', 'app.js'
+        = stylesheet_link_tag 'all'
+
+    %body
+        -# Navigation
+        .ui.secondary.pointing.menu.large
+            .ui.container
+                .header.item
+                    Middleman Pinterest Blog Layout
+                %a.active.item{:href => '/'}
+                    Home

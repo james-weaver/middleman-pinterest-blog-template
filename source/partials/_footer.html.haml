@@ -1,0 +1,43 @@
+-# <div class="ui stackable four column grid">
+-#   <div class="column"></div>
+-#   <div class="column"></div>
+-#   <div class="column"></div>
+-#   <div class="column"></div>
+-# </div>
+
+.ui.vertical.footer.segment
+    .ui.container
+        .ui.stackable.four.column.grid.internally.celled
+
+            .column
+                %p Recent Posts
+                .ui.list
+                    - blog.articles[0...5].each do |article|
+                        = link_to article.title, article, :class => 'item'
+
+            .column
+                %p Tags
+                .ui.list
+                    - blog.tags.each do |tag, articles|
+                        = link_to "#{tag} (#{articles.size})", tag_path(tag), :class => 'item'
+
+            .column
+                %p By Year
+                .ui.list
+                    - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                        = link_to "#{year} (#{articles.count})", blog_year_path(year), :class => 'item'
+
+            .column
+                .middle.aligned.content
+                    .header
+                        Built with
+                        = link_to 'Middleman', 'https://github.com/middleman/middleman'
+                        &amp;
+                        = link_to 'Semantic UI', 'http://www.semantic-ui.com'
+                        by
+                        = link_to 'James Weaver', 'https://github.com/james-weaver'
+
+
+- if @video
+    :javascript
+        $('.ui.embed').embed()

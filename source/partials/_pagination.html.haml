@@ -1,0 +1,10 @@
+.ui.labels
+    - if paginate && num_pages > 1
+        .ui.label
+            page #{page_number} of #{num_pages}
+
+    - if paginate && prev_page
+        = link_to 'previous page', prev_page, :class => 'ui label blue'
+
+    - if paginate && next_page
+        = link_to 'next page', next_page, :class => 'ui label blue'

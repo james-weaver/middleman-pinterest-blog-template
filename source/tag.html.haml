@@ -1,0 +1,14 @@
+---
+pageable: true
+---
+
+%h2.title Posts tagged #{tagname}
+
+-# Articles
+= partial 'partials/articles', locals: {articles: page_articles}
+
+.ui.hidden.divider
+
+-# Pagination
+-if paginate
+    = partial 'partials/pagination', locals: {paginate: paginate, num_pages: num_pages, next_page: next_page, prev_page: prev_page}
