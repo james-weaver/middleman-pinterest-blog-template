@@ -12,7 +12,7 @@
         %meta{:content => "https://yoururl.com/images/fbshare@2x.png", :property => "og:image"}/
 
         %title
-            Middleman Pinterest Blog Layout#{'- ' + current_article.title unless current_article.nil?}
+            Middleman Pinterest Blog Template#{'- ' + current_article.title unless current_article.nil?}
 
         = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
         = javascript_include_tag 'vendor/jquery.min.js', 'vendor/semantic-ui.js', 'app.js'
@@ -23,6 +23,6 @@
         .ui.secondary.pointing.menu.large
             .ui.container
                 .header.item
-                    Middleman Pinterest Blog Layout
+                    Pinterest Blog Template
                 %a.active.item{:href => '/'}
                     Home
